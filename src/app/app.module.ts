@@ -20,6 +20,7 @@ import { ContactComponent } from './components/contact/contact.component';
     ListVoyageComponent,
     ApropsComponent,
     ContactComponent,
+ 
 
   ],
   imports: [
