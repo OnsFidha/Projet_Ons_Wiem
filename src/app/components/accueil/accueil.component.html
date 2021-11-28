@@ -1,25 +1,67 @@
 
-  <div [ngStyle]="{backgroundImage:'url(assets/font.jpg)'}" >
-    <div class="text-center">
-    <h1 >Best Tunisia Travel  <br>  est la meilleure choix pour une vacance inoubliable 
+<section [ngStyle]="{backgroundImage:'url(assets/font.jpg)'}" >
+  <div class="text-center">
+    <h1 >Best Tunisia Travel  <br>  est le meilleur choix pour une vacance inoubliable 
       <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  
     </h1>
-</div></div>
-hoonii :<br>
-boutton de recherche + continents <br><br>
-<footer class="  text-center">
- 
-   
-      <div class="footer card " >
-        <p> <strong>ADDRESSE</strong><br>
+  </div>
+</section>
+
+<section>
+  <div>
+    <div><p>AFRIQUE</p><img classe="img-fluid" src="assets/afrique.jpg"></div>
+    <div ><p>EUROPE </p><img classe="img-fluid" src="assets/europe.jpg"></div>
+    <div ><p>AMERIQUE DU NORD </p><img classe="img-fluid" src="assets/ameriqueDuNord.jpg"></div>
+  </div>
+  <div>
+    <div ><p>AMERIQUE DU SUD</p> <img classe="img-fluid" src="assets/ameriqueDuSud.jpg"></div>
+    <div ><p>AUSTRALIE</p><img classe="img-fluid" src="assets/australie.jpg"></div>
+    <div ><p>L'ASIE</p><img classe="img-fluid" src="assets/asie.jpg"></div>
+  </div>
+</section>
+
+<section>
+  <form>
+    <legend>Recherche avancée</legend>
+    <fieldset>
+    <div>
+      <label>Destination -</label>
+      <select name="dest">
+        <option [value]="dst" *ngFor="let dst of destinations">{{dst}}</option>
+      </select>
+  </div>
+  <div>
+    <label>Date Aller -</label>
+    <select name="dateA" > 
+      <option [value]="dA" *ngFor="let dA of datesA">{{dA|date:'dd/MM/yyyy'}}</option>
+    </select>
+  </div>
+  <div>
+    <label>Date Retour -</label>
+    <select name="dateR" > 
+      <option [value]="dR" *ngFor="let dR of datesR">{{dR|date:'dd/MM/yyyy'}}</option>
+    </select>
+  </div>
+  <div>
+      <label>
+          <input type="checkbox" name="nouv"> En Promo 
+      </label>
+  </div>
+  </fieldset>
+  </form>
+  <button>Rechercher</button>
+</section>
+
+<footer class="text-center">
+      <div class="footer card" >
+        <p> <strong>ADRESSE</strong><br>
         Tunis, Charguia, 2 Rue Des Entrepreneur <br>
         <strong>TELEPHONE</strong><br>
         +216 99 999 999<br>
         <strong>EMAIL</strong><br>
         BestTunisiaTravel@gmail.com   <br>
-           <a href="https://www.facebook.com" class="btn  "><img src="assets/facebook.png" class="facebook" /></a>
-            <a href="https://www.instagram.com"  class="btn"><img src="assets/instagram.png" class="insta" /></a>
-         
-          </p>   
-      
-    </div></footer>
+          <a href="https://www.facebook.com" class="btn"><img src="assets/facebook.png" class="facebook" /></a>
+          <a href="https://www.instagram.com" class="btn"><img src="assets/instagram.png" class="insta" /></a>
+        </p>   
+    </div>
+</footer>

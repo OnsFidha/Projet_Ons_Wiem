@@ -1,22 +1,42 @@
 img{
-    width: 1528px;
+    width: 300px;
+    height: 200px;
+}
+img:hover{
+
+      transition-duration: 0.7s;
+      transform: scale(1.2);
 }
 h1{
     color:slategrey;
-  position: relative;
+    position: relative;
     max-height: 120px;
     display: inline-block;
     margin-top: 250px;
   }
-  .facebook,.insta{
+h2{
+      text-align: center;
+  }
+section{
+      background-color: rgb(255, 221, 190);
+      text-align: center;
+}
+div{
+      display: inline-block;
+      margin: 20px;
+}
+select,button{
+      background-color: rgb(247, 201, 180);
+}
+.facebook,.insta{
 
       width: 50px;
       height: 25px;
-  }
-  footer{
+}
+footer{
       font-size: 15px;
       border-left: 0 ;
       border-right: 0;
       border-bottom: 0;
       border-top:5px solid gainsboro;
-  }
+}
