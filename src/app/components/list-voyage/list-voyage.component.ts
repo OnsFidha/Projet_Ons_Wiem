@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { Voyage } from 'src/app/model/voyage';
 import { VoyageService } from 'src/app/services/voyage.service';
 
@@ -8,13 +10,14 @@ import { VoyageService } from 'src/app/services/voyage.service';
   styleUrls: ['./list-voyage.component.css']
 })
 export class ListVoyageComponent implements OnInit {
-
-  constructor(private voyageService:VoyageService) { }
+ 
+  constructor(private voyageService:VoyageService,) { }
   lesVoyages:Voyage[]=[];
   
 
   ngOnInit(): void {
     this.lesVoyages=this.voyageService.getVoyages();
+    
   }
 
 }

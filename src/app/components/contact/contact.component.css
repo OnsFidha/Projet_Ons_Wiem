@@ -1,0 +1,23 @@
+.facebook,.insta{
+
+    width: 50px;
+    height: 25px;
+}
+img:hover{
+
+      transition-duration: 0.7s;
+      transform: scale(1.2);
+}
+
+.container{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+h5{
+    padding-top: 30px;
+    padding-bottom: 100px;
+}
+.z1{
+    font-size: 20px;
+
+}

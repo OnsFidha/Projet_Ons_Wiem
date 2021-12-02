@@ -2,14 +2,14 @@
 <section [ngStyle]="{backgroundImage:'url(assets/font.jpg)'}" >
   <div class="text-center">
     <h1 >Best Tunisia Travel  <br>  est le meilleur choix pour une vacance inoubliable 
-      <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  
+      
     </h1>
   </div>
 </section>
 
 <section>
   <div>
-    <div><p>AFRIQUE</p><img classe="img-fluid" src="assets/afrique.jpg"></div>
+    <div><p>AFRIQUE</p><a  (click)="onClick()"><img classe="img-fluid" src="assets/afrique.jpg"></a></div>
     <div ><p>EUROPE </p><img classe="img-fluid" src="assets/europe.jpg"></div>
     <div ><p>AMERIQUE DU NORD </p><img classe="img-fluid" src="assets/ameriqueDuNord.jpg"></div>
   </div>
@@ -21,39 +21,40 @@
 </section>
 
 <section>
-  <form>
+  <form [formGroup]="f" (ngSubmit)="Rechercher()">
     <legend>Recherche avancée</legend>
     <fieldset>
     <div>
       <label>Destination -</label>
-      <select name="dest">
+      <select class="form-select" formControlName="dest" >
         <option [value]="dst" *ngFor="let dst of destinations">{{dst}}</option>
       </select>
   </div>
   <div>
-    <label>Date Aller -</label>
-    <select name="dateA" > 
+    <label>Date d'aller -</label>
+    <select class="form-select" formControlName="dateA" > 
       <option [value]="dA" *ngFor="let dA of datesA">{{dA|date:'dd/MM/yyyy'}}</option>
     </select>
   </div>
   <div>
-    <label>Date Retour -</label>
-    <select name="dateR" > 
+    <label>Date de retour -</label>
+    <select class="form-select"formControlName="dateR"  > 
       <option [value]="dR" *ngFor="let dR of datesR">{{dR|date:'dd/MM/yyyy'}}</option>
     </select>
   </div>
   <div>
       <label>
-          <input type="checkbox" name="nouv"> En Promo 
+          <input type="checkbox"  formControlName="nouv" class="form-check-label" class="btn btn-primary" > En Promo 
       </label>
   </div>
   </fieldset>
   </form>
-  <button>Rechercher</button>
+  <button  [routerLink]="['/listVoyage' , f.value]"  class="btn">Rechercher</button>
 </section>
 
 <footer class="text-center">
-      <div class="footer card" >
+  <section [ngStyle]="{backgroundImage:'url(assets/footer.jpg)'}" >
+      <div class="footer " >
         <p> <strong>ADRESSE</strong><br>
         Tunis, Charguia, 2 Rue Des Entrepreneur <br>
         <strong>TELEPHONE</strong><br>
@@ -64,4 +65,5 @@
           <a href="https://www.instagram.com" class="btn"><img src="assets/instagram.png" class="insta" /></a>
         </p>   
     </div>
+  </section>
 </footer>
