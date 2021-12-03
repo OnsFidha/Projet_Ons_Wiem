@@ -7,7 +7,7 @@
  
         <div  *ngFor="let v of lesVoyages" class="col-sm">
         <div class=" card">
-            <div class="card-header">
+        <div class="card-header">
 
         {{v.id}}<br>
          {{v.destination|nom |titlecase}} <br></div>
@@ -19,7 +19,7 @@
         Prix par personne : {{v.prix}}<br></div>
         <div class="card-footer">
         enPromo <input type="checkbox" class="form-check-label " [checked]="v.enPromo"> <br><br>
-      <button class="btn " >Détail</button></div>
+      <button class="btn" [routerLink]="['/voyages',v.id]">Détail</button></div>
     </div>
     </div>
 </div>

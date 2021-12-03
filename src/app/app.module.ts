@@ -12,6 +12,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { NomPipe } from './nom.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RechercheVoyageComponent } from './components/recherche-voyage/recherche-voyage.component';
+import { SelectedVoyageComponent } from './components/selected-voyage/selected-voyage.component';
 
 
 
@@ -26,6 +27,7 @@ import { RechercheVoyageComponent } from './components/recherche-voyage/recherch
     ContactComponent,
     NomPipe,
     RechercheVoyageComponent,
+    SelectedVoyageComponent,
    
 
   ],
