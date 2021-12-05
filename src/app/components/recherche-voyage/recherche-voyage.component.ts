@@ -1,3 +1,4 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -10,13 +11,21 @@ import { VoyageService } from 'src/app/services/voyage.service';
   styleUrls: ['./recherche-voyage.component.css']
 })
 export class RechercheVoyageComponent implements OnInit {
-  F: FormGroup=new FormGroup({});
+  
+lesVoyages:Voyage[]=[];
+  dest:string="";
+  nouv1:boolean=false;
+ 
   constructor(private activatedRoute:ActivatedRoute,
 private voyageService:VoyageService) { }
-Voyage:Voyage[]=[];
-  ngOnInit(): void {
-    this.F = this.activatedRoute.snapshot.params['f.value'];
-    // this.Voyage=this.voyageService.getVoyageByRecherche(this.F.controls.value);
-  }
 
-}
+  ngOnInit(): void {
+    this.dest=this.activatedRoute.snapshot.params['desti'];
+    this.nouv1=this.activatedRoute.snapshot.params['nouvv'];
+console.log(this.dest);
+this.voyageService.getVoyages()
+.subscribe(data=>this.lesVoyages=data);
+  
+this.voyageService.getVoyages()
+  .subscribe (()=>this.lesVoyages=this.lesVoyages.filter(l=>l.destination==this.dest));
+}}

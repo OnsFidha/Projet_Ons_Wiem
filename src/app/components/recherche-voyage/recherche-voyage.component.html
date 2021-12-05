@@ -1,1 +1,5 @@
 <p>recherche-voyage works!</p>
+{{lesVoyages|json}}
+<div *ngFor="let t of lesVoyages">
+    <p>{{t.destination}}</p>
+</div>

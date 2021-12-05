@@ -48,8 +48,12 @@
       </label>
   </div>
   </fieldset>
+
+  <button 
+   [routerLink]="['/listVoyage',f.get('dest')?.value,f.get('nouv')?.value]" 
+    class="btn">Rechercher</button>
+  
   </form>
-  <button  [routerLink]="['/listVoyage' , f.value]"  class="btn">Rechercher</button>
 </section>
 
 <footer class="text-center">
