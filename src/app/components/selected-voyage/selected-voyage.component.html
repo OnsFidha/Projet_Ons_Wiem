@@ -1,4 +1,5 @@
 <div class="container">    
+<<<<<<< HEAD
     <div class="text-center">
         <h1>Voyage en détails</h1>
         <div class="card" *ngFor="let t of lesVoyages">
@@ -13,3 +14,16 @@
 {{lesVoyages|json}}
 </div>
 
+=======
+        <div class="text-center">
+            <h1>Voyage en détails</h1>
+            <div class="card">
+            <div class="card-header">{{description.destination|titlecase}}</div>
+            <div class="card-body">Description dy pays : {{description.texte}} Planning : {{description.planning}}</div> 
+            <div class="card-footer">Hotel : {{description.hotel}} {{description.etoile}} étoiles</div>
+            <button class="btn" routerLink="/listVoyage" >Retour</button>
+            </div>
+        </div>
+    
+</div>
+>>>>>>> 4337062786e12e626569a3a797f10fa52cbd11e4

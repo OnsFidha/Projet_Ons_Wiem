@@ -11,8 +11,13 @@ import { SelectedVoyageComponent } from './components/selected-voyage/selected-v
 const routes: Routes = [
   {path:"accueil",component:AccueilComponent},
   {path:"listVoyage",component:ListVoyageComponent},
+<<<<<<< HEAD
   {path:"listVoyage/:desti/:nouvv" ,component:RechercheVoyageComponent},
   {path:'listVoyage/:id', component:SelectedVoyageComponent},
+=======
+  {path:"listVoyage/:id" ,component:RechercheVoyageComponent},
+  {path:'voyages/:id', component:SelectedVoyageComponent},
+>>>>>>> 4337062786e12e626569a3a797f10fa52cbd11e4
   {path:"apropos",component:ApropsComponent},
   {path:"contact",component:ContactComponent},
   {path:'',redirectTo:'accueil',pathMatch:'full'},
