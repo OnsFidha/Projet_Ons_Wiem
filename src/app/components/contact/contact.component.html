@@ -7,35 +7,17 @@
     saisir votre nom:<input type="text" formControlName="nom" class="form-control " >
     saisir votre prenon:<input type="text" formControlName="prenom" class="form-control ">
     saisir votre commentaire:<input type="text" formControlName="commentaire" class="form-control">
-<button>Ajouter</button>
+
+    <br>
+<button class="btn">Ajouter</button>
 </form>
 </div>
 <div class="col-sm">
-  <div class="z1">Les commentaires</div>
+  <div class="z1 text-center">Les commentaires</div>
 <div *ngFor="let t of a1 , index as i" >
   <div class=" row ">
     <div class=" col ">
   <div class="  card">
-    commentaire {{i+1}} de {{t.nom|titlecase}} {{t.prenom|titlecase}}:<br>
-  {{t.commentaire}}
-  </div></div></div>
-</div>
-</div>
-</div>
-</div>
-<footer class="text-center">
-    <section [ngStyle]="{backgroundImage:'url(assets/footer.jpg)'}" >
-        <div class="footer " >
-          <p> <strong>ADRESSE</strong><br>
-          Tunis, Charguia, 2 Rue Des Entrepreneur <br>
-          <strong>TELEPHONE</strong><br>
-          +216 99 999 999<br>
-          <strong>EMAIL</strong><br>
-          BestTunisiaTravel@gmail.com   <br>
-            <a href="https://www.facebook.com" class="btn"><img src="assets/facebook.png" class="facebook" /></a>
-            <a href="https://www.instagram.com" class="btn"><img src="assets/instagram.png" class="insta" /></a>
-          </p>   
-      </div>
-    </section>
-  </footer>
-  
+    <div class="card-header text-center"> commentaire {{i+1}}: </div> 
+   <div class="card-body"> de la part de {{t.nom|titlecase}} {{t.prenom|titlecase}}:<br>
+  {{t.commentaire}}</div>

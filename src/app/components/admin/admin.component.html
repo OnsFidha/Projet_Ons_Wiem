@@ -1,0 +1,13 @@
+<div class="container  text-center" >
+    <h1>Authentification</h1>
+    <form class="row" [formGroup]="adminForm" (ngSubmit)="onAuthentifier()">
+        <fieldset class="col">
+            <label>Login </label><br>
+            <input type="text" formControlName="login" ><br>
+            <label>Password</label><br>
+            <input type="password" formControlName="password" ><br><br>
+            <button class="btn" >Sign in</button><br><br>
+            </fieldset>
+    </form>
+</div>
+

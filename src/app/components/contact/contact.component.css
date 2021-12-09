@@ -1,14 +1,9 @@
-.facebook,.insta{
-
-    width: 50px;
-    height: 25px;
+button{
+background-color: rgb(247, 201, 180);
 }
-img:hover{
-
-      transition-duration: 0.7s;
-      transform: scale(1.2);
+form{
+    margin-top: 80px;
 }
-
 .container{
     padding-top: 50px;
     padding-bottom: 50px;

@@ -1,0 +1,115 @@
+<!-- <button routerLink="/ajoutvoyage" >ajouter voyage</button> -->
+<br>
+<h1 class="text-center">Liste des voyages</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>img</th>
+                <th>destination</th>
+                <th>continent</th>
+                <th>dateAller</th>
+                <th>dateRetour</th>
+                <th>nbJ</th>
+                <th>Prix</th>
+                <th>enPromo</th>
+                <th>texte</th>
+                <th>planning</th>
+                <th>hotel</th>
+                <th>etoile</th> 
+                <th>Modifier</th>
+                <th>Supprimer</th>
+            </tr>            
+        </thead>
+        <tbody>
+            <tr *ngFor="let v of lesVoyages">
+                <td> {{v.id}} </td>
+                <td> {{v.img}} </td>
+                <td> {{v.destination}} </td>
+                <td> {{v.continent}} </td>
+                <td> {{v.dateAller}} </td>
+                <td> {{v.dateRetour}} </td>
+                <td> {{v.nbJ}} </td>
+                <td> {{v.prix}} DT </td>
+                <td>
+                     <input type="checkbox" [checked]= "v.enPromo" disabled> en promo
+                </td>                
+                <ng-container *ngFor="let d of v.description">
+                    <td> {{d.texte}} </td>
+                    <td> {{d.planning}} </td>
+                    <td> {{d.hotel}} </td>
+                    <td> {{d.etoile}} </td>
+                </ng-container>
+         
+<!--                 
+                <td>texte</td>
+                <td>planning</td>
+                <td>hotel</td>
+                <td>etoile</td> -->
+                <td>
+                    <input type="button" value= "Modifier" 
+                    (click)="onModifier(v.id)" class="btn bouton">
+                </td>
+                <td>
+                    <input type="button" value= "Supprimer" 
+                    (click)="onSupprimer(v.id)" class="btn bouton">
+                </td>               
+            </tr>
+            
+        </tbody>
+    </table>
+    <br>
+<div class="container">
+    <h2 class="text-center">Traitements des voyages</h2>
+    <br>
+    <form class="row" [formGroup]="voyageForm" (ngSubmit)="onSubmit()">
+        <fieldset class="col">
+            <legend>Informations de base</legend>
+    
+            <label>lien image </label><br>
+            <input type="text" class="form-control" formControlName="img"><br>
+    
+            <label>Destination </label><br>
+            <input type="text" class="form-control" formControlName="destination"><br>
+    
+            <label>Continant </label><br>
+            <input type="text" class="form-control" formControlName="continent"><br>
+    
+            <label>Date d'aller </label><br>
+            <input type="date" class="form-control" formControlName="dateAller"><br>
+    
+            <label>Date de retour </label><br>
+            <input type="date" class="form-control" formControlName="dateRetour"><br>
+    
+            <label>Nombre de jours </label><br>
+            <input type="number" class="form-control" formControlName="nbJ"><br>
+    
+            <label>Prix par personne </label><br>
+            <input type="number" class="form-control" formControlName="prix"><br>
+    
+            <input type="checkbox" formControlName="enPromo"><label>En pomotion </label><br>
+
+        </fieldset>
+            
+
+
+        <fieldset class="col" formArrayName="description">
+            <legend>Informations detaillées</legend>
+            <ng-container *ngFor="let d of lesDescriptions.controls">
+                <label>description  </label><br>
+                <input type="text" class="form-control" formControlName="texte"><br>
+                <label>Planning </label><br>
+                <input type="text" class="form-control" formControlName="planning"><br>
+                <label>Hotel </label><br>
+                <input type="text" class="form-control" formControlName="hotel"><br>
+                <label>Nombre d'etoile de l'hotel </label><br>
+                <input type="number" class="form-control" formControlName="etoile"><br>
+            </ng-container>
+        </fieldset>
+        <div class="text-center" >
+        <button class="btn bouton" > Ajouter</button><br>
+        <input type="reset" class="btn bouton" value="Effacer" /> </div>
+    </form>
+</div>
+<br>
+<br>

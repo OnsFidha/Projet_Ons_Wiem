@@ -1,4 +1,4 @@
-import { ThrowStmt } from '@angular/compiler';
+
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -12,20 +12,23 @@ import { VoyageService } from 'src/app/services/voyage.service';
 })
 export class RechercheVoyageComponent implements OnInit {
   
-lesVoyages:Voyage[]=[];
-  dest:string="";
-  nouv1:boolean=false;
+lesVoyages:Voyage[];
+  dest:string;
+ 
  
   constructor(private activatedRoute:ActivatedRoute,
 private voyageService:VoyageService) { }
 
   ngOnInit(): void {
-    this.dest=this.activatedRoute.snapshot.params['desti'];
-    this.nouv1=this.activatedRoute.snapshot.params['nouvv'];
-console.log(this.dest);
-this.voyageService.getVoyages()
-.subscribe(data=>this.lesVoyages=data);
   
-this.voyageService.getVoyages()
-  .subscribe (()=>this.lesVoyages=this.lesVoyages.filter(l=>l.destination==this.dest));
+    this.dest=this.activatedRoute.snapshot.params['desti'];
+    this.dest=this.dest.toLowerCase();
+ this.voyageService.getVoyagesByName(this.dest)
+ .subscribe(data=>this.lesVoyages=data);
+    
+// this.voyageService.getVoyages()
+// .subscribe(data => this.lesVoyages = data);
+  
+//  this.voyageService.getVoyages()
+//  .subscribe (() => this.lesVoyages = this.lesVoyages.filter(l=>l.destination==this.dest));
 }}

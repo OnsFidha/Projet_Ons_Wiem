@@ -9,65 +9,31 @@
 
 <section>
   <div>
-    <div><p>AFRIQUE</p><a  (click)="onClick()"><img classe="img-fluid" src="assets/afrique.jpg"></a></div>
-    <div ><p>EUROPE </p><img classe="img-fluid" src="assets/europe.jpg"></div>
-    <div ><p>AMERIQUE DU NORD </p><img classe="img-fluid" src="assets/ameriqueDuNord.jpg"></div>
+    <div><p>AFRIQUE</p><img  [routerLink]="['/listVoyage']" classe="img-fluid" src="assets/afrique.jpg"></div>
+    <div ><p>EUROPE </p> <a  (click)="onClick()"><img classe="img-fluid" src="assets/europe.jpg"></a></div>
+    <div ><p>AMERIQUE DU NORD </p><a  (click)="onClick()"><img classe="img-fluid" src="assets/ameriqueDuNord.jpg"></a></div>
   </div>
   <div>
-    <div ><p>AMERIQUE DU SUD</p> <img classe="img-fluid" src="assets/ameriqueDuSud.jpg"></div>
-    <div ><p>AUSTRALIE</p><img classe="img-fluid" src="assets/australie.jpg"></div>
-    <div ><p>L'ASIE</p><img classe="img-fluid" src="assets/asie.jpg"></div>
+    <div ><p>AMERIQUE DU SUD</p> <a  (click)="onClick()"><img classe="img-fluid" src="assets/ameriqueDuSud.jpg"></a></div>
+    <div ><p>AUSTRALIE</p><a  (click)="onClick()"><img classe="img-fluid" src="assets/australie.jpg"></a></div>
+    <div ><p>L'ASIE</p><a  (click)="onClick()"><img classe="img-fluid" src="assets/asie.jpg"></a></div>
   </div>
 </section>
 
 <section>
-  <form [formGroup]="f" (ngSubmit)="Rechercher()">
+  <form [formGroup]="f" >
     <legend>Recherche avancée</legend>
     <fieldset>
     <div>
       <label>Destination -</label>
-      <select class="form-select" formControlName="dest" >
-        <option [value]="dst" *ngFor="let dst of destinations">{{dst}}</option>
-      </select>
+      <input type="text" class="form-control" formControlName="dest" >
+       
   </div>
-  <div>
-    <label>Date d'aller -</label>
-    <select class="form-select" formControlName="dateA" > 
-      <option [value]="dA" *ngFor="let dA of datesA">{{dA|date:'dd/MM/yyyy'}}</option>
-    </select>
-  </div>
-  <div>
-    <label>Date de retour -</label>
-    <select class="form-select"formControlName="dateR"  > 
-      <option [value]="dR" *ngFor="let dR of datesR">{{dR|date:'dd/MM/yyyy'}}</option>
-    </select>
-  </div>
-  <div>
-      <label>
-          <input type="checkbox"  formControlName="nouv" class="form-check-label" class="btn btn-primary" > En Promo 
-      </label>
-  </div>
+  
   </fieldset>
 
   <button 
-   [routerLink]="['/listVoyage',f.get('dest')?.value,f.get('nouv')?.value]" 
-    class="btn">Rechercher</button>
+   [routerLink]="['/listVoyage',f.get('dest')?.value]" class="btn">Rechercher</button>
   
   </form>
 </section>
-
-<footer class="text-center">
-  <section [ngStyle]="{backgroundImage:'url(assets/footer.jpg)'}" >
-      <div class="footer " >
-        <p> <strong>ADRESSE</strong><br>
-        Tunis, Charguia, 2 Rue Des Entrepreneur <br>
-        <strong>TELEPHONE</strong><br>
-        +216 99 999 999<br>
-        <strong>EMAIL</strong><br>
-        BestTunisiaTravel@gmail.com   <br>
-          <a href="https://www.facebook.com" class="btn"><img src="assets/facebook.png" class="facebook" /></a>
-          <a href="https://www.instagram.com" class="btn"><img src="assets/instagram.png" class="insta" /></a>
-        </p>   
-    </div>
-  </section>
-</footer>
