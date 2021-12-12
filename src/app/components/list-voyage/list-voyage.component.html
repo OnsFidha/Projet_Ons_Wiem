@@ -2,6 +2,15 @@
 <div class="container  text-center">
 <h1>Nos voyages organisés</h1></div>
 <br><br>
+<form [formGroup]="f">
+  <div class="text-center">
+    <label>Destination -</label><br>
+    <input type="text" class="form-control"  class="col-md-2" formControlName="dest" #nom><br>
+ 
+    <button class="btn" (click)="recherche(nom.value)">Rechercher</button>
+  </div>
+
+</form>
 <div class="container">
     <div class=" text-center row" >
  

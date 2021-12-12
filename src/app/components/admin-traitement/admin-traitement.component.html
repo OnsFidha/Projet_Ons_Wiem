@@ -1,6 +1,12 @@
-<!-- <button routerLink="/ajoutvoyage" >ajouter voyage</button> -->
 <br>
 <h1 class="text-center">Liste des voyages</h1>
+<br>
+<div class="text-center">
+    <label>Destination -</label><br>
+    <input type="text" class="form-control"  class="col-md-2" formControlName="dest" #nom><br>
+ 
+    <button class="btn bouton" (click)="recherche(nom.value)">Rechercher</button>
+  </div> <br>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -13,10 +19,10 @@
                 <th>nbJ</th>
                 <th>Prix</th>
                 <th>enPromo</th>
-                <th>texte</th>
                 <th>planning</th>
                 <th>hotel</th>
                 <th>etoile</th> 
+                <th>villes</th>
                 <th>Modifier</th>
                 <th>Supprimer</th>
             </tr>            
@@ -31,21 +37,14 @@
                 <td> {{v.dateRetour}} </td>
                 <td> {{v.nbJ}} </td>
                 <td> {{v.prix}} DT </td>
-                <td>
-                     <input type="checkbox" [checked]= "v.enPromo" disabled> en promo
-                </td>                
-                <ng-container *ngFor="let d of v.description">
-                    <td> {{d.texte}} </td>
-                    <td> {{d.planning}} </td>
-                    <td> {{d.hotel}} </td>
-                    <td> {{d.etoile}} </td>
-                </ng-container>
-         
-<!--                 
-                <td>texte</td>
-                <td>planning</td>
-                <td>hotel</td>
-                <td>etoile</td> -->
+                <td> 
+                    <input type="checkbox" [checked]= "v.enPromo" disabled> en promo
+                </td>             
+                <td> {{v.planning}} </td>
+                <td> {{v.hotel}} </td>
+                <td> {{v.etoile}} </td>
+                <td> {{v.villes}} </td>
+
                 <td>
                     <input type="button" value= "Modifier" 
                     (click)="onModifier(v.id)" class="btn bouton">
@@ -59,57 +58,96 @@
         </tbody>
     </table>
     <br>
-<div class="container">
-    <h2 class="text-center">Traitements des voyages</h2>
-    <br>
+    <div class="container">
+        <h2 class="text-center">Traitements des voyages</h2>
+     <br>
     <form class="row" [formGroup]="voyageForm" (ngSubmit)="onSubmit()">
-        <fieldset class="col">
-            <legend>Informations de base</legend>
-    
-            <label>lien image </label><br>
-            <input type="text" class="form-control" formControlName="img"><br>
-    
-            <label>Destination </label><br>
-            <input type="text" class="form-control" formControlName="destination"><br>
-    
-            <label>Continant </label><br>
-            <input type="text" class="form-control" formControlName="continent"><br>
-    
-            <label>Date d'aller </label><br>
-            <input type="date" class="form-control" formControlName="dateAller"><br>
-    
-            <label>Date de retour </label><br>
-            <input type="date" class="form-control" formControlName="dateRetour"><br>
-    
-            <label>Nombre de jours </label><br>
-            <input type="number" class="form-control" formControlName="nbJ"><br>
-    
-            <label>Prix par personne </label><br>
-            <input type="number" class="form-control" formControlName="prix"><br>
-    
-            <input type="checkbox" formControlName="enPromo"><label>En pomotion </label><br>
 
-        </fieldset>
-            
+    <label>lien image </label><br>
+    <input type="text" class="form-control" formControlName="img"><br>
+    <div *ngIf="image.invalid && image.touched" class="alert alert-danger">
+        Le lien d'image est obligatoire
+    </div>
 
+    <label>Destination </label><br>
+    <input type="text" class="form-control" formControlName="destination"><br>
+    <div *ngIf="destination.invalid && destination.touched" class="alert alert-danger">
+        La destination est obligatoire
+    </div>
 
-        <fieldset class="col" formArrayName="description">
-            <legend>Informations detaillées</legend>
-            <ng-container *ngFor="let d of lesDescriptions.controls">
-                <label>description  </label><br>
-                <input type="text" class="form-control" formControlName="texte"><br>
-                <label>Planning </label><br>
-                <input type="text" class="form-control" formControlName="planning"><br>
-                <label>Hotel </label><br>
-                <input type="text" class="form-control" formControlName="hotel"><br>
-                <label>Nombre d'etoile de l'hotel </label><br>
-                <input type="number" class="form-control" formControlName="etoile"><br>
-            </ng-container>
-        </fieldset>
-        <div class="text-center" >
-        <button class="btn bouton" > Ajouter</button><br>
-        <input type="reset" class="btn bouton" value="Effacer" /> </div>
-    </form>
+    <label>Continant </label><br>
+    <input type="text" class="form-control" formControlName="continent"><br>
+    <div *ngIf="continent.invalid && continent.touched" class="alert alert-danger">
+        Le continant est obligatoire
+    </div>
+
+    <label>Date d'aller </label><br>
+    <input type="date" class="form-control" formControlName="dateAller"><br>
+    <div *ngIf="dateAller.invalid && dateAller.touched" class="alert alert-danger">
+        La date est obligatoire
+    </div>
+
+    <label>Date de retour </label><br>
+    <input type="date" class="form-control" formControlName="dateRetour"><br>
+    <div *ngIf="dateRetour.invalid && dateRetour.touched" class="alert alert-danger">
+        La date est obligatoire
+    </div>
+
+    <label>Nombre de jours </label><br>
+    <input type="number" class="form-control" formControlName="nbJ"><br>
+    <div *ngIf="isValidPattern2()" class="alert alert-warning">
+        Le nombre de jour est superieur a zéro et formé de deux chiffres au plus 
+    </div>
+
+    <label>Prix par personne </label><br>
+    <input type="number" class="form-control" formControlName="prix"><br>
+    <div *ngIf="prix.invalid && prix.touched" class="alert alert-danger">
+        Le prix est obligatoire
+    </div>
+
+    <label>Planning </label><br>
+    <input type="text" class="form-control" formControlName="planning"><br>
+    <div *ngIf="planning.invalid && planning.touched" class="alert alert-danger">
+        Le planning est obligatoire
+    </div>
+    
+
+    <label>Hotel </label><br>
+    <input type="text" class="form-control" formControlName="hotel"><br>
+    <div *ngIf="hotel.invalid && hotel.touched" class="alert alert-danger">
+        L'hotel est obligatoire
+    </div>
+
+    <label>etoile </label><br>
+    <input type="number" class="form-control" formControlName="etoile"><br>
+    <div *ngIf="isValidPattern()" class="alert alert-warning">
+        Le nombre d'etoile doit etre entre 1 et 5 
+    </div>
+
+    <label>En pomotion</label><input type="checkbox" formControlName="enPromo"><br>
+
+    <div class="col" formArrayName="villes">
+        <div *ngFor="let d of lesVilles.controls; let i= index">
+            <label>Ville {{i+1}}  </label><br>
+            <input type="text" class="form-control" [formControlName]="i"><br>
+        </div>
+    <input type="button" class="btn bouton" value=" plus ville" (click)="onAjouterVille()">
 </div>
+<div class="text-center" >
+<button class="btn bouton"   [disabled]="voyageForm.invalid"> Ajouter</button><br>
+<input type="reset" class="btn bouton" value="Réinisialiser" /> </div>
+</form>
+
+<h1 class="text-center">Les avis</h1>
+    <div *ngFor="let t of a , index as i" >
+        <div class="card">
+        commentaire {{i+1}}:
+        de la part de {{t.nom|titlecase}} {{t.prenom|titlecase}}:<br>
+        {{t.commentaire}}
+     
+    </div>
+    <button class="btn bouton" (click)="supp(t.id)" >supprimer</button>
+</div>
+
 <br>
 <br>

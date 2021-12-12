@@ -8,7 +8,9 @@ const URL="http://localhost:3000/avis";
 })
 export class AvisService {
  
-  
+    deleteAvis(id:number){
+      return this.http.delete(URL+"/"+id);
+    }
   public getAvis():Observable<Avis[]>{
     return this.http.get<Avis[]>(URL);
   }

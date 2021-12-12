@@ -13,10 +13,12 @@ export class VoyageService {
   constructor(private http: HttpClient) { }
 
   
-    getVoyages():Observable<Voyage[]>{
-      return this.http.get<Voyage[]>(URLL);}
+getVoyages():Observable<Voyage[]>{
+  return this.http.get<Voyage[]>(URLL);}
 
-
+  deleteVoyage(id:number){
+    return this.http.delete(URLL+"/"+id);
+  }
 getVoyagesById(id:number):Observable<Voyage>{
   return this.http.get<Voyage>(`${URLL}/${id}`);
 }
@@ -26,9 +28,7 @@ getVoyagesByName(name:string):Observable<Voyage[]>{
 ajouterVoyage(voyage:Voyage):Observable<Voyage>{
   return this.http.post<Voyage>(URLL,voyage);
 }
-deleteVoyage(id:number){
-  return this.http.delete(URLL+"/"+id);
-}
+
 modifierVoyage(id:number,voyage:Voyage):Observable<Voyage>{
   return this.http.put<Voyage>(URLL+"/"+id, voyage);
 }
