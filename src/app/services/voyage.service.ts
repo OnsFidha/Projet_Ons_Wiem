@@ -15,10 +15,6 @@ export class VoyageService {
   
 getVoyages():Observable<Voyage[]>{
   return this.http.get<Voyage[]>(URLL);}
-<<<<<<< HEAD
-=======
-
->>>>>>> 8b2831d489560dab9c9bfdc429c43625c51022b2
 
   deleteVoyage(id:number){
     return this.http.delete(URLL+"/"+id);
