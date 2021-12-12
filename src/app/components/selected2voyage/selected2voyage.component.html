@@ -4,7 +4,11 @@
         <h1>Voyage en détails</h1>
         <div  *ngFor="let t of lesVoyages">
             <div class=" card col-sm-6 mx-auto">
+<<<<<<< HEAD
               
+=======
+                <div *ngFor="let p of lesVoyages">
+>>>>>>> 8b2831d489560dab9c9bfdc429c43625c51022b2
                     <div class="card-header">
                         {{t.destination|nom |titlecase}}
                     </div>
@@ -17,11 +21,19 @@
                         Description du pays : {{t.destination}} <br>
                         Planning : {{t.planning}}<br>
                         Hotel : {{t.hotel}} {{t.etoile}} étoiles<br>
+<<<<<<< HEAD
                          Les villes a visiter:
                          <div *ngFor="let p of t.villes">{{p}}<br>
+=======
+                        <!-- Les villes a visiter : {{p}} -->
+>>>>>>> 8b2831d489560dab9c9bfdc429c43625c51022b2
                     </div>
                 </div>
             </div>
         </div>
     </div>
+<<<<<<< HEAD
 </div>
+=======
+</div>
+>>>>>>> 8b2831d489560dab9c9bfdc429c43625c51022b2

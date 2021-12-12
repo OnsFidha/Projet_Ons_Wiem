@@ -4,9 +4,14 @@
     <div class="text-center">
         <h1>Voyage en détails</h1>
         
+<<<<<<< HEAD
             <div class=" card col-sm-6 mx-auto">
                 
         <div class="card-header">{{lesVoyages.destination |nom|titlecase}}</div>
+=======
+            <div *ngFor="let p of lesVoyages.ville" class=" card col-sm-6 mx-auto">
+        <div class="card-header">{{lesVoyages.destination|nom |titlecase}}</div>
+>>>>>>> 8b2831d489560dab9c9bfdc429c43625c51022b2
         <div class="card-body">
             <img [src]=lesVoyages.img><br>
             Date d'aller : {{lesVoyages.dateAller }}<br> 
@@ -16,11 +21,15 @@
             Description du pays : {{lesVoyages.destination}} <br>
             Planning : {{lesVoyages.planning}}<br>
             Hotel : {{lesVoyages.hotel}} {{lesVoyages.etoile}} étoiles<br>
+<<<<<<< HEAD
             Les villes à visiter :
             <div  *ngFor="let t of lesVoyages.villes">
          {{t}}<br></div> 
         </div>
  
+=======
+            Les villes à visiter : {{p}}</div> 
+>>>>>>> 8b2831d489560dab9c9bfdc429c43625c51022b2
             
         <button class="btn" routerLink="/listVoyage" >Retour</button>
         

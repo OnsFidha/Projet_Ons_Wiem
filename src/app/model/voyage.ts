@@ -12,6 +12,10 @@ export class Voyage {
         public planning : string,
         public hotel : string,
         public etoile :number,
+<<<<<<< HEAD
         public villes:string[]
+=======
+        public ville:string[]
+>>>>>>> 8b2831d489560dab9c9bfdc429c43625c51022b2
     ){}
 }
