@@ -1,26 +1,26 @@
 <br><br>
 <div class="container">    
-
-    <div class="text-center ">
-        
+    <div class="text-center ">        
         <h1>Voyage en détails</h1>
         <div  *ngFor="let t of lesVoyages">
             <div class=" card col-sm-6 mx-auto">
-            <div *ngFor="let p of t.description">
-        <div class="card-header">{{t.destination|nom |titlecase}}</div>
-         <div class="card-body">
-            <img [src]=t.img><br>
-            Date d'aller : {{t.dateAller }}<br> 
-            Date de retour : {{t.dateRetour }}<br>
-            Nombre de jours : {{t.nbJ}}<br>
-            Prix par personne : {{t.prix}} Dt<br>
-            Description du pays : {{t.destination}} <br>Planning : {{p.planning}}<br>
-      Hotel : {{p.hotel}} {{p.etoile}} étoiles
-     
-    </div>
+                <div *ngFor="let p of lesVoyages">
+                    <div class="card-header">
+                        {{t.destination|nom |titlecase}}
+                    </div>
+                    <div class="card-body">
+                        <img [src]=t.img><br>
+                        Date d'aller : {{t.dateAller }}<br> 
+                        Date de retour : {{t.dateRetour }}<br>
+                        Nombre de jours : {{t.nbJ}}<br>
+                        Prix par personne : {{t.prix}} Dt<br>
+                        Description du pays : {{t.destination}} <br>
+                        Planning : {{t.planning}}<br>
+                        Hotel : {{t.hotel}} {{t.etoile}} étoiles<br>
+                        <!-- Les villes a visiter : {{p}} -->
+                    </div>
+                </div>
+            </div>
         </div>
-    </div></div>
-</div>
-
-
+    </div>
 </div>

@@ -13,8 +13,8 @@ export class VoyageService {
   constructor(private http: HttpClient) { }
 
   
-    getVoyages():Observable<Voyage[]>{
-      return this.http.get<Voyage[]>(URLL);}
+getVoyages():Observable<Voyage[]>{
+  return this.http.get<Voyage[]>(URLL);}
 
 
 getVoyagesById(id:number):Observable<Voyage>{

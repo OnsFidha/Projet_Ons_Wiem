@@ -1,5 +1,3 @@
-import { Description } from "./description";
-
 export class Voyage {
     constructor(
         public img:string,
@@ -11,6 +9,9 @@ export class Voyage {
         public nbJ:number,
         public prix : number,
         public enPromo: boolean,
-        public description:Description[]
+        public planning : string,
+        public hotel : string,
+        public etoile :number,
+        public ville:string[]
     ){}
 }
